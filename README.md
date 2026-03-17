@@ -1,46 +1,60 @@
-# ActiveDirectory-ExchangeDeployment
-Full deployment documentation for Active Directory + Exchange Server on-premises environment
-# Active Directory & Exchange Server Deployment (On-Premises)
+# Active Directory & Exchange Server 2019 CU1 Deployment
+**Domain:** `hossam.corp`  
+**Exchange Version:** Exchange Server 2019 (CU15)  
+**Author:** Hossam Sousi  
 
-This repository contains full documentation, scripts, and deployment references for 
-implementing an on-premises Active Directory domain and Microsoft Exchange Server environment.
+---
 
-## 📌 Project Overview
-- Active Directory Domain Services deployed
-- Exchange Server installed and integrated with AD
-- Bulk creation of users and mailboxes
-- Post-install configurations and cumulative updates
-- Automation scripts for user and mailbox provisioning
+## 📌 Overview
+This repository documents the full end-to-end deployment of a complete **Active Directory** and **Microsoft Exchange Server 2019 CU1** environment for the domain **hossam.corp**.
+
+The project includes:
+- ADDS installation & configuration  
+- Exchange Server 2025 CU15 deployment  
+- AD + Exchange integration  
+- Bulk user provisioning  
+- Bulk mailbox creation  
+- Post-installation configuration  
+- Health checks and validation scripts  
+
+This documentation follows enterprise best practices and is designed as a technical reference for future deployments, audits, and portfolio showcase.
+
+---
 
 ## 🧱 Technologies Used
-- Windows Server 2025
-- Active Directory Domain Services
-- Exchange Server (CU version)
-- PowerShell 5.1
-- DNS, DHCP, IIS
-- Outlook / Autodiscover
+- **Windows Server 2022** (Domain Controllers)
+- **Exchange Server 2019 CU15**
+- **Active Directory Domain Services (ADDS)**
+- **DNS / Autodiscover / EWS / SMTP**
+- **PowerShell 5.1**
+- **IIS**
+- **.NET Framework dependencies**
 
-## 📂 Repository Structure
-- **architecture/** → diagrams of AD/Exchange topology
-- **setup-guides/** → full step-by-step documentation
-- **scripts/** → PowerShell scripts used in the deployment
-- **csv/** → import templates for users, groups, mailboxes
+---
 
-## 🚀 Deployment Steps (High-Level)
-1. Prepare Windows Server environment  
-2. Install Active Directory Domain Services  
-3. Configure DNS and Sites/Subnets  
-4. Prepare Exchange prerequisites  
-5. Install Exchange Server & apply Cumulative Update  
-6. Configure Virtual Directories, Certificates, Mail Flow  
-7. Create Users & Mailboxes (CSV + PowerShell scripts)  
-8. Validate deployment with health-check scripts  
+## 📁 Repository Structure
 
-## 🧪 Health Checks
-Scripts included:
-- AD health-check
-- Exchange health-check
-- Autodiscover and Mailflow tests
+| Folder | Description |
+|--------|-------------|
+| `/architecture` | Logical and physical diagrams of AD, Exchange, and mail flow |
+| `/setup-guides` | Step-by-step documentation for each stage of deployment |
+| `/scripts` | PowerShell automation for AD users, mailboxes, and diagnostics |
+| `/csv` | Template CSV files used for bulk provisioning |
 
-## 📝 Author
-Hossam Sousi — Voice Expert / Systems Infrastructure  / Microsoft MWP
+---
+
+## 🚀 Deployment Summary (High Level)
+
+### **1. Active Directory Deployment**
+- Installed AD Domain Services  
+- Promoted server to DC for `hossam.corp`  
+- Configured DNS and Sites/Subnets  
+- Created OU structure  
+- Applied security baselines  
+
+### **2. Exchange 2019 CU15 Installation**
+- Installed prerequisites (UCMA, IIS components, .NET)  
+- Prepared AD schema using:  
+  ```powershell
+  Setup.exe /PrepareSchema /IAcceptExchangeServerLicenseTerms
+  Setup.exe /PrepareAD /IAcceptExchangeServerLicenseTerms
