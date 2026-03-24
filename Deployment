@@ -1,0 +1,30 @@
+# Exchange Server On-Prem Deployment Log
+
+## Overview
+This repository documents my setup and configuration of Microsoft Exchange Server on-prem, referencing Ali Tajran's documentation.
+
+## Environment
+- Windows Server 2022
+- Exchange Server 2019 CU13
+- AD Domain: contoso.local
+- Server Role: Mailbox Role
+
+## Steps Completed
+### 1. Prepare Active Directory
+- Installed prerequisites
+- Ran `Setup.exe /PrepareSchema`
+- Ran `Setup.exe /PrepareAD`
+
+### 2. Install Exchange Server
+- Downloaded latest CU
+- Installed UCMA
+- Installed prerequisites using PowerShell (added commands)
+
+### 3. Post-Installation Tasks
+- Configured receive connectors
+- Configured send connectors
+- Imported SSL certificate
+- Configured virtual directories
+
+## References
+- https://alitajran.com
