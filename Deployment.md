@@ -25,7 +25,7 @@ Install-WindowsFeature Web-Server, Web-Basic-Auth, Web-Windows-Auth, Web-Metabas
 Web-Net-Ext45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Filtering, Web-Stat-Compression, `
 Web-Dyn-Compression, NET-Framework-45-Features, RPC-over-HTTP-proxy, `
 Web-Asp-Net45, WAS-Process-Model, WAS-Config-APIs
-
+```powershell
 ---
 
   # 2️⃣ Install UCMA (Unified Communications Managed API)
@@ -37,20 +37,24 @@ Download and install UCMA 4.0 (.exe installer).
 Run these commands only once per forest.
 
 Navigate to the Exchange setup files:
+```powershell
 cd D:\Exchange2019Setup   # Path to Exchange setup media
 
 ✔ Prepare Schema
-
+```powershell
 Setup.exe /PrepareSchema /IAcceptExchangeServerLicenseTerms_DiagnosticDataON
 
 ✔ Prepare AD
+```powershell
 Setup.exe /PrepareAD /OrganizationName:"YourOrg" /IAcceptExchangeServerLicenseTerms_DiagnosticDataON
 
 ✔ Prepare Domains
+```powershell
 Setup.exe /PrepareAllDomains /IAcceptExchangeServerLicenseTerms_DiagnosticDataON
 
 
 4️⃣ Install Exchange Server (Mailbox Role)
+```powershell
 Setup.exe /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON
 
 Exchange setup will:
