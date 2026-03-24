@@ -25,7 +25,7 @@ Install-WindowsFeature Web-Server, Web-Basic-Auth, Web-Windows-Auth, Web-Metabas
 Web-Net-Ext45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Filtering, Web-Stat-Compression, `
 Web-Dyn-Compression, NET-Framework-45-Features, RPC-over-HTTP-proxy, `
 Web-Asp-Net45, WAS-Process-Model, WAS-Config-APIs
-```powershell
+
 ---
 
   # 2️⃣ Install UCMA (Unified Communications Managed API)
